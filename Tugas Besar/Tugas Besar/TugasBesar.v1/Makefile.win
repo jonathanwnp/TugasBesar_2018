@@ -1,0 +1,33 @@
+# Project: TugasBesar_RealEstate
+# Makefile created by Dev-C++ 4.9.9.5
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = 
+OBJ      = main.o source.o $(RES)
+LINKOBJ  = main.o source.o $(RES)
+LIBS     = -L"C:/Dev-Cpp/lib" -L"C:/Dev-Cpp/lib/gcc" -static-libstdc++ -static-libgcc  
+INCS     = -I"C:/Dev-Cpp/include" 
+CXXINCS  = -I"C:/Dev-Cpp/include"  -I"C:/Dev-Cpp/include/sys"  -I"C:/Dev-Cpp/include/ddk"  -I"C:/Dev-Cpp/include/gdiplus"  -I"C:/Dev-Cpp/include/GL" 
+BIN      = TugasBesar_RealEstate.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS   = $(INCS)  
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before TugasBesar_RealEstate.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "TugasBesar_RealEstate.exe" $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+source.o: source.c
+	$(CC) -c source.c -o source.o $(CFLAGS)
